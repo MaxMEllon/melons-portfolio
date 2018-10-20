@@ -18,13 +18,6 @@
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-optional-chaining",
     [
-      "flow-runtime",
-      {
-        "assert": true,
-        "annotate": true
-      }
-    ],
-    [
       "@babel/plugin-proposal-pipeline-operator",
       {
         "proposal": "minimal"
