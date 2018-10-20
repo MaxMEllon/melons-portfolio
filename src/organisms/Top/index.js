@@ -1,7 +1,6 @@
-import { compose, lifecycle } from 'recompose'
-import Top from './Top'
+import { compose, lifecycle } from "recompose";
+import Top from "./Top";
 
-const EnhancedTop = lifecycle({
-})(Top)
+const EnhancedTop = lifecycle({})(Top);
 
-export default EnhancedTop
+export default EnhancedTop;

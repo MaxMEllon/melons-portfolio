@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node ./server.js",
-    "fmt": "prettier --write",
+    "fmt": "prettier --write ./src/**/*.js",
     "lint": "eslint src"
   },
   "devDependencies": {

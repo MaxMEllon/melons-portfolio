@@ -1,10 +1,10 @@
-import { random } from 'lodash/fp'
+import { random } from "lodash/fp";
 
 const colors = Object.freeze({
-  pink: '#FD5992',
-  cyan: '#01C9D5',
-  white: '#FFFFFF',
-})
+  pink: "#FD5992",
+  cyan: "#01C9D5",
+  white: "#FFFFFF",
+});
 
 export function randomColor() {
   switch (random(0, 1)) {
@@ -13,6 +13,6 @@ export function randomColor() {
     case 1:
       return colors.cyan;
   }
-} 
+}
 
-export default colors
+export default colors;

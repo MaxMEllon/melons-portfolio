@@ -1,5 +1,5 @@
-import { fetchReposShiga } from './redux/github'
+import { fetchReposShiga } from "./redux/github";
 
 export default function rootShiga(onAsync) {
-  fetchReposShiga(onAsync)
+  fetchReposShiga(onAsync);
 }
