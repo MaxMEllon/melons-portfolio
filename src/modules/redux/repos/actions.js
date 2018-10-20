@@ -17,7 +17,7 @@ export const {
         END: undefined,
       },
       FETCH: undefined,
-      SUCCESS: (payload) => payload.data,
+      SUCCESS: undefined,
       FAIL: [undefined, () => ({ error: true })],
     },
   },

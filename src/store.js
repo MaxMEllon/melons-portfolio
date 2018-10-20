@@ -1,7 +1,7 @@
 import { applyMiddleware, compose, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import createShigaMiddleware from "redux-shiga";
-import rootShiga from "./modules/shiga";
+import rootShiga from "./modules/redux/shiga";
 
 const shigaMiddleware = createShigaMiddleware();
 
