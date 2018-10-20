@@ -4,7 +4,7 @@ const colors = Object.freeze({
   pink: "#FD5992",
   cyan: "#01C9D5",
   white: "#FFFFFF",
-  black: "#0A0A0A",
+  black: "#0A0A0A"
 });
 
 export function randomColor() {
@@ -13,6 +13,8 @@ export function randomColor() {
       return colors.pink;
     case 1:
       return colors.cyan;
+    default:
+      return "#FF0000";
   }
 }
 

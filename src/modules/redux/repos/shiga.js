@@ -1,39 +1,48 @@
 import axios from "axios";
+import { setupCache } from "axios-cache-adapter";
 import { dispatch } from "redux-shiga";
-import { flow, reduce, sortBy, times, take } from 'lodash/fp'
-import opt from '../../../utils/opt'
-import { fetch, loading, success, fail } from './actions'
+import { reduce, sortBy, times, take } from "lodash/fp";
+import opt from "../../../utils/opt";
+import { fetch, loading, success, fail } from "./actions";
+
+const cache = setupCache({
+  maxAge: 15 * 60 * 1000
+});
 
 const request = axios.create({
-  baseURL: 'https://api.github.com',
+  adapter: cache.adapter,
+  baseURL: "https://api.github.com",
   headers: {
-    Authorization: `bearer ${process.env.GITHUB_API_TOKEN}`,
-  },
-})
+    Authorization: `bearer ${process.env.GITHUB_API_TOKEN}`
+  }
+});
 
 const option = opt`
   visibility=public
   &per_page=100
   &sort=updated
   &direction=asc
-`
+`;
 
-const concatResultsAndTakeTopTen = flow(
-  reduce((acc, cur) => [...acc, ...cur.data], []),
-  sortBy((repo) => repo.stargazers_count * -1),
-  take(10),
-)
+const concatResultsAndTakeTopTen = results =>
+  results
+  |> reduce((acc, cur) => [...acc, ...cur.data], [])
+  |> sortBy(repo => repo.stargazers_count * -1)  // DESC
+  |> take(10);
 
 export default function fetchReposShiga(onAsync) {
   onAsync(fetch, async () => {
-    await dispatch(loading.start())
+    await dispatch(loading.start());
     try {
-      const results = await Promise.all(times((i) => request.get(`/users/maxmellon/repos?${option}&page=${i+1}`), 3))
-      const result = concatResultsAndTakeTopTen(results)
+      const path = "/users/maxmellon/repos";
+      const results = await Promise.all(
+        times(i => request.get(`${path}?${option}&page=${i + 1}`), 3)
+      );
+      const result = concatResultsAndTakeTopTen(results);
       await dispatch(success(result));
     } catch (err) {
       await dispatch(fail(err));
     }
-    await dispatch(loading.end())
+    await dispatch(loading.end());
   });
 }

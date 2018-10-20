@@ -18,7 +18,7 @@ const P = styled.p`
 `;
 
 const Header = () => (
-  <HeaderBlock area={"head"}>
+  <HeaderBlock area="head">
     <P>maxmellon.github.io</P>
   </HeaderBlock>
 );

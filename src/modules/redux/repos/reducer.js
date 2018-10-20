@@ -1,46 +1,46 @@
-import { handleActions } from 'redux-actions'
-import { loading, success, fail } from './actions'
+import { handleActions } from "redux-actions";
+import { loading, success, fail } from "./actions";
 
 export const defaultState = {
   model: {
-    repos: null,
+    repos: null
   },
   meta: {
     loading: false,
-    error: false,
-  },
+    error: false
+  }
 };
 
 export const reducer = handleActions(
   {
-    [success]: (state, action) => ({
+    [success]: (state, { payload }) => ({
       ...state,
       model: {
         ...state.repos,
-        repos: action.payload,
-      },
+        repos: payload
+      }
     }),
-    [fail]: (state, action) => ({
+    [fail]: (state, { payload }) => ({
       ...state,
       meta: {
         ...state.meta,
-        error: action.payload,
-      },
+        error: payload
+      }
     }),
-    [loading.start]: (state, action) => ({
+    [loading.start]: state => ({
       ...state,
       meta: {
         ...state.meta,
-        loading: true,
-      },
+        loading: true
+      }
     }),
-    [loading.end]: (state, action) => ({
+    [loading.end]: state => ({
       ...state,
       meta: {
         ...state.meta,
-        loading: false,
-      },
-    }),
+        loading: false
+      }
+    })
   },
   defaultState
 );

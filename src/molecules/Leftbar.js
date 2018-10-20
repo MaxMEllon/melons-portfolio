@@ -25,7 +25,7 @@ const LeftbarBlock = styled(Area)`
 `;
 
 const Leftbar = () => (
-  <LeftbarBlock area={"left"}>
+  <LeftbarBlock area="left">
     <Fa.FaGithub />
   </LeftbarBlock>
 );

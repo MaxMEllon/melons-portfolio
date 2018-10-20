@@ -38,7 +38,7 @@ const Body = styled(Area)`
 
 const Top = () => (
   <Grid>
-    <Body area={"body"}>
+    <Body area="body">
       <Header />
       <Leftbar />
     </Body>

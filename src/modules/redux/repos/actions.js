@@ -1,5 +1,7 @@
 import { createActions } from 'redux-actions'
 
+const undf = void 0
+
 export const {
   github: {
     repos: {
@@ -13,12 +15,12 @@ export const {
   GITHUB: {
     REPOS: {
       LOADING: {
-        START: undefined,
-        END: undefined,
+        START: undf,
+        END: undf,
       },
-      FETCH: undefined,
-      SUCCESS: undefined,
-      FAIL: [undefined, () => ({ error: true })],
+      FETCH: undf,
+      SUCCESS: undf,
+      FAIL: [undf, () => ({ error: true })],
     },
   },
 })
