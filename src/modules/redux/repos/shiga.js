@@ -1,6 +1,7 @@
 import { dispatch } from "redux-shiga";
 import { reduce, sortBy, times, take } from "lodash/fp";
 import opt from "../../../utils/opt";
+import delay from "../../../utils/delay";
 import { fetch, loading, success, fail } from "./actions";
 import axios from "../../../utils/axios";
 
@@ -31,6 +32,7 @@ export default function fetchReposShiga(onAsync) {
     } catch (err) {
       await dispatch(fail(err));
     }
+    await delay(500);
     await dispatch(loading.end());
   });
 }

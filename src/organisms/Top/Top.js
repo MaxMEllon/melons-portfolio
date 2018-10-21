@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Area from "../../templates/Area";
 import Header from "../../molecules/Header";
+import Main from "../../molecules/Main";
+import Loading from "../../molecules/Loading";
 import Leftbar from "../../molecules/Leftbar";
 import colors from "../../constants/colors";
 
@@ -23,7 +25,7 @@ const Grid = styled.div`
 
 const bodyTemplates = `
   "head head"
-  "left body"
+  "left main"
 `;
 
 const Body = styled(Area)`
@@ -39,7 +41,9 @@ const Body = styled(Area)`
 const Top = () => (
   <Grid>
     <Body area="body">
+      <Loading />
       <Header />
+      <Main />
       <Leftbar />
     </Body>
   </Grid>
