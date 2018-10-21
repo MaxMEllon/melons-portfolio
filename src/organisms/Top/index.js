@@ -1,4 +1,4 @@
-import { compose, lifecycle } from "recompose";
+import { compose, lifecycle, pure } from "recompose";
 import { connect } from "react-redux";
 import { fetch as fetchRepos, reposSelector } from "../../modules/redux/repos";
 import Top from "./Top";
@@ -16,6 +16,7 @@ const EnhancedTop = compose(
     mapStateToProps,
     mapDispatchToProps
   ),
+  pure,
   lifecycle({
     componentDidMount() {
       this.props.fetchRepos();

@@ -1,5 +1,5 @@
-import { createSelector } from "reselect";
-import { omit, map } from "lodash/fp";
+import { omit, map, join } from "lodash/fp";
+import { memoize } from "lodash";
 
 const getRepos = state => state.github.model.repos;
 
@@ -52,7 +52,9 @@ const ignoreKeys = [
 
 const omitKeysFromRepos = ignoreKeys |> omit |> map;
 
-export const reposSelector = createSelector(
-  getRepos,
-  repos => repos |> omitKeysFromRepos
+const memo = memoize(
+  omitKeysFromRepos,
+  repos => repos |> map(repo => repo.id + repo.updated_at) |> join("-")
 );
+
+export const reposSelector = state => state |> getRepos |> memo;

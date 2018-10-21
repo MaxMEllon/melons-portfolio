@@ -5189,6 +5189,11 @@ reduce-reducers@^0.1.0:
   resolved "https://registry.yarnpkg.com/reduce-reducers/-/reduce-reducers-0.1.5.tgz#ff77ca8068ff41007319b8b4b91533c7e0e54576"
   integrity sha512-uoVmQnZQ+BtKKDKpBdbBri5SLNyIK9ULZGOA504++VbHcwouWE+fJDIo8AuESPF9/EYSkI0v05LDEQK6stCbTA==
 
+redux-action-timing-middleware@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/redux-action-timing-middleware/-/redux-action-timing-middleware-1.2.0.tgz#ca98b127e9f329316eb120f8f24b873eb10282d2"
+  integrity sha512-4seWrLYMqmxF769KPon9uYTS4JzzCXr0UE9kwPkMeJph8d/nLiF7gyggY27RRxYv773KLWvMO6xKsC4yB4qKdA==
+
 redux-actions@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/redux-actions/-/redux-actions-2.6.1.tgz#42c06e94739fbe6db35db3605abb105bdb3724d8"
