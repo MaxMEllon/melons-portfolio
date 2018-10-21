@@ -5,7 +5,7 @@ const colors = Object.freeze({
   cyan: "#01C9D5",
   white: "#FFFFFF",
   yellow: "#FFC400",
-  black: "#0A0A0A"
+  black: "#0A0A0A",
 });
 
 export function randomColor() {

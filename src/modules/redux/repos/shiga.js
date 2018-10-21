@@ -4,10 +4,10 @@ import opt from "../../../utils/opt";
 import { fetch, loading, success, fail } from "./actions";
 import axios from "../../../utils/axios";
 
-const concatResultsAndTakeTopTen = results =>
+const concatResultsAndTakeTopTen = (results) =>
   results
   |> reduce((acc, cur) => [...acc, ...cur.data], [])
-  |> sortBy(repo => repo.stargazers_count * -1)  // DESC
+  |> sortBy((repo) => repo.stargazers_count * -1)  // DESC
   |> take(10);
 
 const option = opt`
@@ -24,7 +24,7 @@ export default function fetchReposShiga(onAsync) {
     await dispatch(loading.start());
     try {
       const results = await Promise.all(
-        times(i => axios.get(`${path}&page=${i + 1}`), 3)
+        times((i) => axios.get(`${path}&page=${i + 1}`), 3)
       );
       const result = concatResultsAndTakeTopTen(results);
       await dispatch(success(result));

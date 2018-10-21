@@ -35,7 +35,7 @@ const Hover = styled.div`
 
 const style = {
   padding: "20px 0",
-  fontSize: "30px"
+  fontSize: "30px",
 };
 
 const Leftbar = () => (

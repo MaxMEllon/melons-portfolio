@@ -3,12 +3,12 @@ import { loading, success, fail } from "./actions";
 
 export const defaultState = {
   model: {
-    repos: null
+    repos: null,
   },
   meta: {
     loading: false,
-    error: false
-  }
+    error: false,
+  },
 };
 
 export const reducer = handleActions(
@@ -17,30 +17,30 @@ export const reducer = handleActions(
       ...state,
       model: {
         ...state.repos,
-        repos: [...payload]
-      }
+        repos: [...payload],
+      },
     }),
     [fail]: (state, { payload }) => ({
       ...state,
       meta: {
         ...state.meta,
-        error: payload
-      }
+        error: payload,
+      },
     }),
-    [loading.start]: state => ({
+    [loading.start]: (state) => ({
       ...state,
       meta: {
         ...state.meta,
-        loading: true
-      }
+        loading: true,
+      },
     }),
-    [loading.end]: state => ({
+    [loading.end]: (state) => ({
       ...state,
       meta: {
         ...state.meta,
-        loading: false
-      }
-    })
+        loading: false,
+      },
+    }),
   },
   defaultState
 );

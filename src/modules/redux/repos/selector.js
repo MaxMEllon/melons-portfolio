@@ -1,7 +1,7 @@
 import { omit, map, join } from "lodash/fp";
 import { memoize } from "lodash";
 
-const getRepos = state => state.github.model.repos;
+const getRepos = (state) => state.github.model.repos;
 
 const ignoreKeys = [
   "archive_url",
@@ -47,14 +47,16 @@ const ignoreKeys = [
   "tags_url",
   "tags_url",
   "teams_url",
-  "trees_url"
+  "trees_url",
 ];
 
 const omitKeysFromRepos = ignoreKeys |> omit |> map;
 
-const memo = memoize(
-  omitKeysFromRepos,
-  repos => repos |> map(repo => repo.id + repo.updated_at) |> join("-")
-);
+const memoResolver = (repos) =>
+  repos |> map((repo) => repo.id + repo.updated_at) |> join("-");
 
-export const reposSelector = state => state |> getRepos |> memo;
+const memo = memoize(omitKeysFromRepos, memoResolver);
+
+export const reposSelector = (state) => state |> getRepos |> memo;
+
+window.memo = memo;
