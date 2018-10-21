@@ -1,7 +1,8 @@
-import { reducer } from './reducer'
+import { reducer } from "./reducer";
 
-export { defaultState } from './reducer'
-export { fetch, fail, success, loading } from './actions'
-export { default as fetchReposShiga } from './shiga'
+export { reposSelector } from "./selector";
+export { defaultState } from "./reducer";
+export { fetch, fail, success, loading } from "./actions";
+export { default as fetchReposShiga } from "./shiga";
 
-export default reducer
+export default reducer;

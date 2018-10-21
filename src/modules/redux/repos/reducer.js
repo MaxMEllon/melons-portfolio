@@ -17,7 +17,7 @@ export const reducer = handleActions(
       ...state,
       model: {
         ...state.repos,
-        repos: payload
+        repos: [...payload]
       }
     }),
     [fail]: (state, { payload }) => ({

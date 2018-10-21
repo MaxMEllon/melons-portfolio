@@ -53,6 +53,7 @@
     "redux-actions": "^2.6.1",
     "redux-devtools-extension": "^2.13.5",
     "redux-shiga": "^0.3.2",
+    "reselect": "^4.0.0",
     "styled-components": "^4.0.2",
     "styled-reset": "^1.6.0"
   }

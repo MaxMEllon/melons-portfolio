@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Area from '../../templates/Area'
+import Area from "../../templates/Area";
 import Header from "../../molecules/Header";
 import Leftbar from "../../molecules/Leftbar";
 import colors from "../../constants/colors";
@@ -9,7 +9,7 @@ const template = `
   ".    .    .   "
   ".    body .   "
   ".    .    .   "
-`
+`;
 
 const Grid = styled.div`
   display: grid;
@@ -22,19 +22,19 @@ const Grid = styled.div`
 `;
 
 const bodyTemplates = `
-  "left head"
+  "head head"
   "left body"
-`
+`;
 
 const Body = styled(Area)`
   display: grid;
   grid-template-areas: ${bodyTemplates};
-  grid-template-rows: 50px 1fr;
+  grid-template-rows: 10% 1fr;
   grid-template-columns: 15% 1fr;
   background-color: ${colors.cyan};
   width: 100%;
   height: 100%;
-`
+`;
 
 const Top = () => (
   <Grid>

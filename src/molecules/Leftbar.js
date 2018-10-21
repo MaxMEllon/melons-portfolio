@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Fa from 'react-icons/fa'
+import { IconContext } from "react-icons";
+import Fa from "react-icons/fa";
 import colors from "../constants/colors";
-import Area from '../templates/Area'
+import Area from "../templates/Area";
 
 const LeftbarBlock = styled(Area)`
   display: flex;
@@ -24,10 +25,33 @@ const LeftbarBlock = styled(Area)`
   }
 `;
 
+const Hover = styled.div`
+  width: 100%;
+  text-align: center;
+  &:hover {
+    background-color: rgba(239, 171, 171, 0.51);
+  }
+`;
+
+const style = {
+  padding: "20px 0",
+  fontSize: "30px"
+};
+
 const Leftbar = () => (
-  <LeftbarBlock area="left">
-    <Fa.FaGithub />
-  </LeftbarBlock>
+  <IconContext.Provider value={{ style }}>
+    <LeftbarBlock area="left">
+      <Hover>
+        <Fa.FaUserAlt />
+      </Hover>
+      <Hover>
+        <Fa.FaGithub />
+      </Hover>
+      <Hover>
+        <Fa.FaFileAlt />
+      </Hover>
+    </LeftbarBlock>
+  </IconContext.Provider>
 );
 
 export default Leftbar;
