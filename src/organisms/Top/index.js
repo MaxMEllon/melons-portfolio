@@ -1,4 +1,5 @@
 import { compose, lifecycle, pure } from "recompose";
+import { hot } from "react-hot-loader";
 import { connect } from "react-redux";
 import { fetch as fetchRepos, reposSelector } from "../../modules/redux/repos";
 import Top from "./Top";
@@ -12,6 +13,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const EnhancedTop = compose(
+  hot(module),
   connect(
     mapStateToProps,
     mapDispatchToProps

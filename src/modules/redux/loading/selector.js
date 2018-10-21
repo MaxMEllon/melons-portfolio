@@ -1,6 +1,6 @@
 import { createSelector } from "reselect";
 
-const getGithubLoading = state => state.github.meta.loading;
+const getGithubLoading = (state) => state.github.meta.loading;
 
 const loadingSelector = createSelector(
   [getGithubLoading],
