@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { IconContext } from "react-icons";
-import Fa from "react-icons/fa";
-import colors from "../constants/colors";
-import Area from "../templates/Area";
+import React from 'react';
+import styled from 'styled-components';
+import { IconContext } from 'react-icons';
+import Fa from 'react-icons/fa';
+import colors from '../constants/colors';
+import Area from '../templates/Area';
 
 const LeftbarBlock = styled(Area)`
   display: flex;
@@ -34,8 +34,8 @@ const Hover = styled.div`
 `;
 
 const style = {
-  padding: "20px 0",
-  fontSize: "30px",
+  padding: '20px 0',
+  fontSize: '30px',
 };
 
 const Leftbar = () => (

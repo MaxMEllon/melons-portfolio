@@ -1,9 +1,9 @@
-import { dispatch } from "redux-shiga";
-import { reduce, sortBy, times, take } from "lodash/fp";
-import opt from "../../../utils/opt";
-import delay from "../../../utils/delay";
-import { fetch, loading, success, fail } from "./actions";
-import axios from "../../../utils/axios";
+import { dispatch } from 'redux-shiga';
+import { reduce, sortBy, times, take } from 'lodash/fp';
+import opt from '../../../utils/opt';
+import delay from '../../../utils/delay';
+import { fetch, loading, success, fail } from './actions';
+import axios from '../../../utils/axios';
 
 const concatResultsAndTakeTopTen = (results) =>
   results

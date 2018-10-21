@@ -35,6 +35,7 @@
     "import/extensions": "off",
     "linebreak-style": ["error", "unix"],
     "max-len": ["error", 100],
+    "quotes": ["error", "single"],
     "no-catch-shadow": "error",
     "no-console": "error",
     "no-implicit-globals": "error",

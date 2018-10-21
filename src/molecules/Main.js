@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Area from "../templates/Area";
+import React from 'react';
+import styled from 'styled-components';
+import Area from '../templates/Area';
 
 const Wrapper = styled(Area)`
   width: 100%;

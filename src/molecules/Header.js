@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import colors from "../constants/colors";
-import Area from "../templates/Area";
+import React from 'react';
+import styled from 'styled-components';
+import colors from '../constants/colors';
+import Area from '../templates/Area';
 
 const HeaderBlock = styled(Area)`
   display: flex;
