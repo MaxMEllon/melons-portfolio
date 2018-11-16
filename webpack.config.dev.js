@@ -1,37 +1,37 @@
-const path = require('path')
-const webpack = require('webpack')
-const Dotenv = require('dotenv-webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { name } = require('./package.json')
+const path = require('path');
+const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { name } = require('./package.json');
 
 module.exports = {
   cache: true,
   mode: 'development',
-  entry: ['./src/index'],
+  entry: ['./src/index.tsx'],
   devtool: 'inline-source-map',
   output: {
     path: `${__dirname}/dist/`,
     filename: 'bundle.[hash].js',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.js$|\.tsx?$/,
         exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader',
-          }
-        ]
-      }
-    ]
+          },
+        ],
+      },
+    ],
   },
   optimization: {
     splitChunks: {
       name: 'vendor',
-      chunks: 'initial'
-    }
+      chunks: 'initial',
+    },
   },
   plugins: [
     new Dotenv({ path: './.env' }),
@@ -41,13 +41,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       title: name,
-      template: path.join(__dirname, 'templates', 'template.ejs')
-    })
+      template: path.join(__dirname, 'templates', 'template.ejs'),
+    }),
   ],
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', '.ts', '.tsx'],
     alias: {
-      '~': path.resolve(__dirname, 'src')
-    }
-  }
-}
+      '~': path.resolve(__dirname, 'src'),
+    },
+  },
+};
