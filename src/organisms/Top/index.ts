@@ -5,7 +5,11 @@ import { fetch as fetchRepos, reposSelector } from '../../modules/redux/repos';
 import { fetch as fetchProfile } from '../../modules/redux/profile';
 import Top from './Top';
 
-const mapStateToProps = (state) => ({
+export type State = {
+  repos: any
+}
+
+const mapStateToProps = (state: State) => ({
   repos: reposSelector(state),
 });
 

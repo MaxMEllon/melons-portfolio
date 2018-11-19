@@ -1,9 +1,6 @@
-import { omit, map, reduce } from 'lodash/fp';
-import { memoize } from 'lodash';
+import { omit, map, reduce, pipe, memoizeWith } from 'ramda'
 
-const getRepos = (state) => state.github.model.repos;
-
-const ignoreKeys = [
+const ignoreKeys: Array<string> = [
   'archive_url',
   'archived',
   'assignees_url',
@@ -50,10 +47,8 @@ const ignoreKeys = [
   'trees_url',
 ];
 
-const omitKeysFromRepos = ignoreKeys |> omit |> map;
-
-const memoResolver = (repos) => repos |> reduce((acc, cur) => cur.id + cur.updated_at, '');
-
-const memo = memoize(omitKeysFromRepos, memoResolver);
-
-export const reposSelector = (state) => state |> getRepos |> memo;
+const mapper = pipe(omit, map)(ignoreKeys)
+const resolver: (res: Array<{ id: string }>) => string = reduce((acc, cur) => acc + cur.id, '');
+const converter: (repos: any) => Object = memoizeWith(resolver, mapper);
+const getRepos = (state: any): Object => state.github.model.repos;
+export const reposSelector: (state: any) => Object = pipe(a => console.log(a), getRepos, converter)
